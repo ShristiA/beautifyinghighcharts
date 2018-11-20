@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+<body>
+
+<div th:fragment ="navlinks">
+    <ul>
+        <li> <a href = "/">Welcome!</a></li>
+        <li> <a href="/">Home</a></li>
+
+        <div sec:authorize ="!isAuthenticated()">
+            <li style ="float:right"><a class="active" href="/login">Login </a></li>
+
+
+        <div sec:authorize ="!isAuthenticated()">
+            <li style ="float:right"><a class="active" href="/register"> Register</a></li></div>
+
+        <div sec:authorize ="isAuthenticated()">
+            <li style ="float:right"><a class="active" href = "/">Welcome [[${#authentication.name}]]!</a></li>
+            <li style ="float:right"><a class="active" href="/logout">logout </a></li>
+            <li style ="float:right"><a class="active" href="/uploadExcelFile">Upload your Excel File </a></li> </div>
+
+    </ul>
+</div>
+
+</body>
+</html>

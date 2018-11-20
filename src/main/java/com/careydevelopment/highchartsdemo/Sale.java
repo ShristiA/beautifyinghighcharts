@@ -1,6 +1,8 @@
 package com.careydevelopment.highchartsdemo;
 
 
+import com.careydevelopment.highchartsdemo.Security.User;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,6 +17,8 @@ public class Sale {
     private int quantity;
     private double amount;
     private String date;
+
+
 
     public long getId() {
         return id;
