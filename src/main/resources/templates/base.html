@@ -1,17 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+    <th:block th:fragment="headstuff">
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
 
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #5bc2bc;
+        }
+
+        .active {
+            background-color: #333;
+        }
+    </style>
+        <header xmlns:th="http://www.w3.org/1999/xhtml">
+            <div class="page-header">
+                <div class="page-header-top">
+                    <div class="container">
+                        <div class="page-logo">
+                            <a th:href="@{/}">
+                                <img th:src="@{/images/editedimage.png}" alt="logo" style="margin-top:5px"/>
+                            </a>
+                        </div>
+                        <a href="javascript:;" class="menu-toggler"></a>
+                    </div>
+                </div>
+                <div class="page-header-menu">
+                    <div class="container">
+                        <div class="hor-menu  ">
+                            <ul class="nav navbar-nav">
+                                <li class="menu-dropdown classic-menu-dropdown">
+                                    <a th:href="@{/}"> Home
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </th:block>
 </head>
 <body>
 
 <div th:fragment ="navlinks">
-    <ul>
-        <li> <a href = "/">Welcome!</a></li>
-        <li> <a href="/">Home</a></li>
+   <ul>
+        <li><a href = "/">Welcome!</a></li>
+       <li><a href="/">Home</a></li>
 
         <div sec:authorize ="!isAuthenticated()">
-            <li style ="float:right"><a class="active" href="/login">Login </a></li>
+            <li style ="float:right"><a class="active" href="/login">Login </a></li></div>
 
 
         <div sec:authorize ="!isAuthenticated()">
@@ -22,7 +91,7 @@
             <li style ="float:right"><a class="active" href="/logout">logout </a></li>
             <li style ="float:right"><a class="active" href="/uploadExcelFile">Upload your Excel File </a></li> </div>
 
-    </ul>
+   </ul>
 </div>
 
 </body>

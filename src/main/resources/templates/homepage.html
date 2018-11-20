@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-
+    <th:block th:replace="base :: headstuff"></th:block>
     <title>Title</title>
 </head>
 
@@ -9,10 +9,14 @@
 <div th:replace="base :: navlinks"> </div>
 <div class="container">
     <div class="jumbotron">
-        <a href ="/login">Login </a><br />
-        <a href ="/register">Register Now</a><br />
 
-    </div>
+    <h1>Aries Group - Final Project</h1>
+    <h2>"Data Visualization"</h2>
+    <h2><i>Empower Businesses to see and understand through visualization</i></h2>
+    <a href="/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+    <a href="/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Registration</a>
+
+</div>
 </div>
 
 </body>
